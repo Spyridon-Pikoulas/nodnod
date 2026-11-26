@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>NodNod: a stop alarm for the train and bus</title>
+  <meta name="description" content="Sleep on the train. NodNod wakes you before your stop. Free on iPhone.">
+  <meta name="theme-color" content="#1C2550">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://nodnod.pikoulas.com/">
+  <meta property="og:title" content="NodNod">
+  <meta property="og:description" content="Sleep on the train. NodNod wakes you before your stop.">
+  <meta property="og:image" content="https://nodnod.pikoulas.com/media/icon.jpg">
+  <link rel="icon" href="/media/favicon.png">
+  <link rel="apple-touch-icon" href="/media/apple-touch-icon.png">
+  <link rel="preload" href="/fonts/nunito.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="home">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <a class="brand" href="/" translate="no" aria-current="page"><img src="/media/favicon.png" alt="" width="32" height="32">NodNod</a>
+    <nav aria-label="Help and policies"><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a></nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="pitch">
+        <h1>Sleep on the train. NodNod wakes you before your stop.</h1>
+        <p class="lede">Pick your stop, or drop a pin on the map, and doze off: as the train or bus nears it, NodNod rings like a real alarm, even with the phone on silent.</p>
+        <div class="get">
+          <p class="store soon">Coming soon to the App Store</p>
+          <p class="note">For iPhone. Every trip is free.</p>
+        </div>
+      </div>
+
+      <div class="atlas" aria-hidden="true">
+        <svg class="map" viewBox="0 0 640 520">
+          <path class="park" d="M240 368c40-26 110-20 128 10s-20 70-70 74-98-56-58-84Z"/>
+          <path class="park" d="M540 430c50-18 110 0 120 40l-10 70h-150c0-50 0-90 40-110Z"/>
+          <path class="park" d="M560 128c40-6 90 4 100 30l-6 46c-40 10-90 4-104-26s-14-46 10-50Z"/>
+          <path class="park" d="M40 70c30-14 70-4 74 22s-30 40-58 34-46-42-16-56Z"/>
+          <path class="park" d="M-20 440c40-20 90-10 100 30l-10 70h-90Z"/>
+          <path class="streets" d="M171 78L229 50M215 -13L242 38M29 -2L25 64M597 342L650 324M74 46L140 23M218 97L233 140M347 266L393 281M582 225L646 206M542 146L607 164M254 441L325 459M24 345L17 400M439 -41L429 27M220 479L271 456M175 33L162 79M80 72L119 147M93 112L114 162M324 529L405 498M631 333L622 388M297 184L317 223M325 520L364 501M206 327L265 343M62 228L54 278M41 390L114 408M-24 282L20 268M215 35L243 111M191 65L216 144M485 91L480 122M-35 130L33 142M188 423L239 442M117 78L142 135M616 334L683 309M484 37L562 17M476 214L503 280M45 471L32 548M21 38L53 99M302 321L290 373M315 63L390 42M33 359L66 439M511 92L572 103M503 146L494 178M494 440L472 524M30 75L107 54M380 387L407 441M442 282L503 300M286 424L330 405M462 276L547 251M271 294L290 351M615 106L626 144M35 236L90 218M105 154L144 144M269 409L326 386M638 401L668 491M0 263L-12 317M291 164L372 126M120 477L150 464M497 90L522 172M443 465L435 554M330 388L405 356M71 468L138 493M55 230L80 319M127 72L189 90M624 10L687 -8M281 233L266 281M115 72L137 144M373 191L451 221M-26 326L6 334M396 183L468 203M-12 78L33 89M588 515L679 533M164 333L175 361M165 3L154 57M153 343L214 322M499 310L481 385M296 101L335 176M575 293L597 369M333 444L399 426M579 347L594 377M421 485L404 549M401 316L412 344M506 404L538 393M459 127L502 115M271 374L339 351M-3 51L68 73M441 336L432 399M264 248L327 233M193 -1L190 57M545 495L529 548M584 507L621 494M324 480L348 546M126 34L213 51M274 2L346 -14M259 362L252 412M533 -25L569 -12M593 376L626 382M218 478L272 456"/>
+          <path class="roads" d="M195-10C205 80 215 150 235 215S250 360 230 530M-10 395C120 380 240 420 340 405S520 380 650 400M360-10C370 60 385 140 420 200S470 260 540 230S620 215 650 210M-10 250C30 255 60 270 75 300S90 420 70 530M600 530C570 460 540 400 505 360"/>
+          <path class="river" d="M-20 170C60 140 110 215 175 205C245 195 265 120 345 110C425 100 460 60 540 62C590 64 620 40 660 30"/>
+          <text class="district" x="70" y="40">FULHAM</text>
+          <text class="district" x="120" y="350">WANDSWORTH</text>
+          <text class="district" x="528" y="214">BATTERSEA</text>
+          <text class="district" x="452" y="492">CLAPHAM</text>
+          <path class="ahead" d="M70 300C130 330 190 280 250 270C330 256 400 300 470 330"/>
+          <path class="done" d="M70 300C130 330 190 280 250 270C330 256 400 300 470 330" pathLength="1"/>
+          <circle class="zone" cx="470" cy="330" r="64"/>
+          <circle class="zping" cx="470" cy="330" r="64"/>
+          <circle class="stn" cx="70" cy="300" r="8"/>
+          <circle class="stn via" cx="250" cy="270" r="8"/>
+          <defs><g id="train"><circle r="17" style="fill: var(--line); stroke: var(--deep); stroke-width: 4"/><path style="fill: var(--deep)" transform="translate(-10.5 -10.5) scale(0.082)" d="M184,24H72A32,32,0,0,0,40,56V184a32,32,0,0,0,32,32h8L65.6,235.2a8,8,0,1,0,12.8,9.6L100,216h56l21.6,28.8a8,8,0,1,0,12.8-9.6L176,216h8a32,32,0,0,0,32-32V56A32,32,0,0,0,184,24Zm0,176H72a16,16,0,0,1-16-16V136H200v48A16,16,0,0,1,184,200ZM96,172a12,12,0,1,1-12-12A12,12,0,0,1,96,172Zm88,0a12,12,0,1,1-12-12A12,12,0,0,1,184,172Z"/></g></defs>
+          <g class="moving"><animateMotion dur="3.9s" fill="freeze" calcMode="spline" keyPoints="0;0;0.8476;1" keyTimes="0;0.1282;0.6945;1" keySplines="0 0 1 1;0.45 0 0.7 0.7;0.2 0.6 0.4 1" path="M70 300C130 330 190 280 250 270C330 256 400 300 470 330"/><use href="#train"/></g>
+          <use class="still" href="#train" x="470" y="330"/>
+        </svg>
+        <span class="lbl" style="left: 34%; top: 41.5%">Wandsworth Town</span>
+        <span class="lbl end" style="left: 73.4%; top: 77.5%">Clapham Junction</span>
+        <div class="sleeper">
+          <div class="glow"></div>
+          <span class="z z1">z</span><span class="z z2">z</span><span class="z z3">z</span>
+          <img class="asleep" src="/media/asleep.webp" alt="" width="480" height="480" fetchpriority="high">
+          <img class="awake" src="/media/awake.webp" alt="" width="480" height="480" fetchpriority="high">
+          <p class="wake">Wake up!</p>
+        </div>
+      </div>
+    </section>
+    <script>
+      // The ride waits until half the map is on screen: on a phone it starts below the fold.
+      (() => {
+        const hero = document.querySelector('.hero'), map = hero.querySelector('.map');
+        hero.classList.add('waiting');
+        map.pauseAnimations();
+        new IntersectionObserver((seen, watch) => {
+          if (!seen[0].isIntersecting) return;
+          watch.disconnect();
+          map.setCurrentTime(0);
+          map.unpauseAnimations();
+          hero.classList.remove('waiting');
+        }, { threshold: 0.5 }).observe(hero.querySelector('.atlas'));
+      })();
+    </script>
+
+    <section class="trip" aria-labelledby="trip">
+      <h2 id="trip">From your seat to your stop</h2>
+      <ol class="screens">
+        <li>
+          <img src="/media/shot-03.webp" alt="Searching for Clapham: stations and streets nearby, and Pick on Map" width="600" height="1304" loading="lazy">
+          <h3>Pick your stop</h3>
+          <p>Any station, stop or address, or a pin dropped on the map.</p>
+        </li>
+        <li>
+          <img src="/media/shot-01.webp" alt="A trip to Clapham Junction on the map: 2.1 miles to go" width="600" height="1304" loading="lazy">
+          <h3>Doze off</h3>
+          <p>Your trip on the map, and the circle where the alarm rings.</p>
+        </li>
+        <li>
+          <img src="/media/shot-04.webp" alt="The Lock Screen showing 1.3 miles left to Clapham Junction" width="600" height="1304" loading="lazy">
+          <h3>Glance, half awake</h3>
+          <p>The distance left, on the Lock Screen and in the Dynamic Island.</p>
+        </li>
+        <li>
+          <img src="/media/shot-02.webp" alt="Wake up! Your stop is next: Clapham Junction, with an I’m Awake button" width="600" height="1304" loading="lazy">
+          <h3>Wake up</h3>
+          <p>A real alarm before your stop, even with the phone on silent.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="price" aria-labelledby="price">
+      <h2 id="price">Free, and Pro once</h2>
+      <div class="offers">
+        <div class="offer">
+          <h3>Every trip is free</h3>
+          <p>As many as you like, each to one stop, with no account.</p>
+          <ul>
+            <li>An alarm before your stop, even on silent</li>
+            <li>Your stop picked on the map, and the trip shown on it</li>
+            <li>The distance left on the Lock Screen</li>
+            <li>A backup alarm at a set time</li>
+          </ul>
+        </div>
+        <div class="offer pro">
+          <img class="ticket" src="/media/ticket.webp" alt="" width="480" height="480" loading="lazy">
+          <h3>NodNod Pro, <span class="amount">$3.99</span> once</h3>
+          <p>One purchase, no subscription. The App Store shows the price in your currency before you buy.</p>
+          <ul>
+            <li><b>Saved and recent stops.</b> Your stops on Home, one tap to a trip.</li>
+            <li><b>Routines.</b> Your usual trip starts on its own on its days, once you set off.</li>
+            <li><b>Routes with changes.</b> Wakes you at the change, then at your stop.</li>
+            <li><b>One-press start.</b> From Siri, a widget, Control Center or the Action button.</li>
+            <li><b>Over 20 alarm sounds,</b> from gentle to firm.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="notes">
+      <div>
+        <h2>A backup, not a guarantee</h2>
+        <p>NodNod rings from your iPhone’s location, which can come late or not at all underground, in tunnels or with the battery low. For a stop that matters, set the backup alarm too.</p>
+      </div>
+      <div>
+        <h2>Yours alone</h2>
+        <p>No account, no sign-up, no tracking. Your stops and routines are kept on your iPhone, and your last position only until the trip ends. Search and the map send your position to Apple Maps. <a href="/privacy/">The privacy policy</a> says what is kept and where.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <nav aria-label="More"><a href="/support/">Support</a><a href="/privacy/">Privacy</a><a href="/terms/">Terms</a><a href="mailto:spyridwn.pd@gmail.com">spyridwn.pd@gmail.com</a></nav>
+    <p>NodNod is made by <a href="https://pikoulas.com/">Spyridon Pikoulas</a>. This site sets no cookies and counts no visits.</p>
+    <p>Apple, iPhone and App Store are trademarks of Apple Inc.</p>
+  </footer>
+</body>
+</html>

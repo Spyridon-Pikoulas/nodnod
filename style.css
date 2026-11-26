@@ -1,0 +1,260 @@
+/* NodNod's site: the app's night palette, its rounded type, and one moment of motion, the ride in the hero. */
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/nunito.woff2") format("woff2");
+  font-weight: 600 900;
+  font-display: swap;
+}
+
+:root {
+  --night: #1C2550;
+  --deep: #0B1026;
+  --butter: #FFDB73;        /* waking and arriving only, as in the app */
+  --on-butter: #1A1F45;
+  --action: #5B5FE0;
+  --line: #9AA6FF;          /* links, the route, the train */
+  --text: #F2F3FF;
+  --mist: #A7B0D0;
+  --rule: #2A3566;
+  --zzz: #C9CEFF;
+  --round: "Nunito", ui-rounded, system-ui, sans-serif;  /* rounded like the app's numbers, the same on every device */
+  --body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --gutter: max(clamp(20px, 5vw, 48px), env(safe-area-inset-left), env(safe-area-inset-right));
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t: 2.71s;                                /* the train crosses the ring's edge: everything that wakes, wakes here */
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--deep);
+  color: var(--text);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--rule) var(--deep);
+}
+::selection { color: #fff; background: var(--action); }
+
+body {
+  margin: 0;
+  font: 17px/1.55 var(--body);
+  background: linear-gradient(180deg, var(--night) 0, var(--deep) 760px) no-repeat var(--deep);
+}
+
+a { color: var(--line); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; border-radius: 6px; }
+a, button { touch-action: manipulation; }
+.skip { position: absolute; left: var(--gutter); top: 8px; z-index: 2; padding: 10px 16px; border-radius: 10px; color: #fff; background: var(--action); transform: translateY(-160%); }
+.skip:focus-visible { transform: none; }
+
+h1, h2, h3 { font-family: var(--round); font-weight: 800; letter-spacing: -0.01em; text-wrap: balance; }
+
+.top, main, .foot { width: calc(100% - 2 * var(--gutter)); max-width: 1120px; margin-inline: auto; }
+
+/* Header and footer */
+
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: max(16px, env(safe-area-inset-top)); }
+.brand { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--text); text-decoration: none; font: 800 21px/1 var(--round); }
+.brand img { border-radius: 8px; }
+nav { display: flex; flex-wrap: wrap; }
+nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 12px; color: var(--mist); text-decoration: none; border-radius: 10px; }
+nav a[aria-current] { color: var(--text); }
+.top nav { margin-right: -12px; }
+@media (hover: hover) and (pointer: fine) {
+  nav a:hover { color: var(--text); }
+  .store:hover { background: #6A6EEA; }
+}
+
+.foot { margin-top: clamp(88px, 12vw, 144px); padding: 32px 0 max(40px, env(safe-area-inset-bottom)); border-top: 1px solid var(--rule); color: var(--mist); font-size: 15px; }
+.foot nav { margin-left: -12px; }
+.foot p { margin: 12px 0 0; }
+
+/* The hero: what it says on the left, the trip on a night map on the right */
+
+.hero { position: relative; display: grid; padding-top: clamp(40px, 7vw, 88px); }
+.hero::before {  /* a few still stars */
+  content: ""; position: absolute; inset: 0 0 30% 0; pointer-events: none; opacity: 0.7;
+  background:
+    radial-gradient(1.5px 1.5px at 58% 8%, var(--zzz), transparent),
+    radial-gradient(1px 1px at 72% 26%, var(--zzz), transparent),
+    radial-gradient(1.5px 1.5px at 91% 12%, var(--zzz), transparent),
+    radial-gradient(1px 1px at 47% 34%, var(--zzz), transparent),
+    radial-gradient(1px 1px at 84% 40%, var(--zzz), transparent),
+    radial-gradient(1.5px 1.5px at 6% 4%, var(--zzz), transparent);
+}
+.pitch, .atlas { grid-area: 1 / 1; }
+.pitch { position: relative; z-index: 1; max-width: min(34rem, 50%); padding-bottom: 96px; }
+h1 { margin: 0; font-size: clamp(40px, 5.4vw, 70px); line-height: 1.03; letter-spacing: -0.02em; }
+.lede { margin: 24px 0 0; max-width: 33rem; font-size: clamp(18px, 1.6vw, 20px); color: var(--mist); }
+.get { margin-top: 32px; }
+.store {
+  display: inline-flex; align-items: center; min-height: 52px; margin: 0; padding: 0 24px; border-radius: 16px;
+  font: 800 18px/1 var(--round); color: #fff; background: var(--action); text-decoration: none;
+  user-select: none; -webkit-user-select: none; transition: transform 160ms var(--ease-out), background-color 160ms ease;
+}
+.store:active { transform: scale(0.97); }
+.store.soon { color: var(--text); background: rgb(242 243 255 / 0.06); box-shadow: inset 0 0 0 1px var(--rule); }
+.note { margin: 12px 0 0; font-size: 15px; color: var(--mist); }
+
+/* The map is drawn in a 640 x 520 box; the labels and the sleeper sit at its percentages. */
+.atlas { position: relative; justify-self: end; align-self: end; width: min(660px, 59%); aspect-ratio: 640 / 520; margin-right: -24px; pointer-events: none; }
+.map {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 22%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 12%, #000 86%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 22%, #000 94%, transparent), linear-gradient(to bottom, transparent, #000 12%, #000 86%, transparent);
+  mask-composite: intersect;
+}
+.park { fill: #1B3A43; opacity: 0.7; }
+.river { fill: none; stroke: #22366F; stroke-width: 24; stroke-linecap: round; }
+.streets { fill: none; stroke: #27325F; stroke-width: 1.4; stroke-linecap: round; }
+.roads { fill: none; stroke: #303C74; stroke-width: 4; stroke-linecap: round; }
+.district { font: 700 10px/1 var(--body); letter-spacing: 0.2em; fill: var(--mist); opacity: 0.5; }
+.ahead { fill: none; stroke: var(--line); stroke-opacity: 0.35; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 0.5 11; }
+.done { fill: none; stroke: var(--line); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1 1; stroke-dashoffset: 0; }
+.stn { fill: var(--line); stroke: var(--deep); stroke-width: 3; }
+.zone { fill: rgb(255 219 115 / 0.14); stroke: var(--butter); stroke-width: 2; }
+.zping { fill: none; stroke: var(--butter); stroke-width: 2; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.lbl { position: absolute; font: 700 15px/1.2 var(--round); color: var(--mist); white-space: nowrap; }
+.lbl.end { color: var(--text); transform: translateX(-50%); }
+
+.sleeper { position: absolute; left: 60.2%; top: 17.3%; width: 26.6%; aspect-ratio: 1; }  /* the pin's tip just above the ring */
+.sleeper img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.glow { position: absolute; inset: 14%; border-radius: 50%; background: radial-gradient(closest-side, rgb(255 219 115 / 0.5), transparent); filter: blur(18px); }
+.wake {
+  position: absolute; left: 50%; top: -8%; margin: 0; padding: 8px 16px; border-radius: 999px; white-space: nowrap;
+  font: 800 clamp(16px, 1.6vw, 20px)/1 var(--round); color: var(--on-butter); background: var(--butter);
+  transform: translateX(-50%) rotate(-4deg);
+}
+.z { position: absolute; right: 16%; top: 18%; font: 800 18px/1 var(--round); color: var(--zzz); opacity: 0; }
+.z2 { font-size: 22px; }
+.z3 { font-size: 26px; }
+
+/* The ride, once per visit: the text rises; the train leaves Putney at 0.5 s, passes Wandsworth Town,
+   crosses the ring's edge at --t and brakes into Clapham Junction. The train's SMIL motion and the
+   drawn line keep one timing: pulling away to the edge (0.45 0 0.7 0.7), then braking (0.2 0.6 0.4 1),
+   meeting at the same speed at 84.76% of the line and 64.96% of its 3.4 s. */
+@media (prefers-reduced-motion: no-preference) {
+  .pitch > * { animation: rise 640ms var(--ease-out) both; }
+  h1 { --rise: 18px; }
+  .lede { --rise: 10px; animation-delay: 100ms; }
+  .get { --rise: 6px; animation-delay: 180ms; }
+
+  .still { display: none; }
+  .done { animation: draw 3.4s linear 0.5s both; }
+  .stn.via { animation: pass 300ms ease-out 1.95s both; }
+  .zone { animation: zone-warm 360ms ease-out var(--t) both; }
+  .zping { animation: ping 900ms ease-out var(--t) 2; }
+  .asleep { animation: doze 1.3s ease-in-out 2 both, out 220ms ease-out var(--t) both; }
+  .awake { animation: jolt 620ms var(--spring) var(--t) both; }
+  .glow { animation: warm-up 700ms ease-out var(--t) both; }
+  .wake { animation: pop 420ms var(--spring) calc(var(--t) + 140ms) both; }
+  .z { animation: drift 1.05s ease-out 2; }
+  .z2 { animation-delay: 0.35s; }
+  .z3 { animation-delay: 0.7s; }
+  .waiting .atlas * { animation-play-state: paused; }  /* until the map is on screen (index.html's script) */
+}
+@media (prefers-reduced-motion: reduce) {
+  .moving, .z { display: none; }  /* the ride's last frame: he is awake at his stop */
+}
+.asleep { opacity: 0; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(var(--rise)); } }
+@keyframes draw {
+  0% { stroke-dashoffset: 1; animation-timing-function: cubic-bezier(0.45, 0, 0.7, 0.7); }
+  64.96% { stroke-dashoffset: 0.1524; animation-timing-function: cubic-bezier(0.2, 0.6, 0.4, 1); }
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes pass { from { fill: var(--deep); stroke: var(--line); } }
+@keyframes zone-warm { from { fill: rgb(154 166 255 / 0.08); stroke: var(--line); } }
+@keyframes ping { 0% { opacity: 0.8; transform: scale(1); } 100% { opacity: 0; transform: scale(1.8); } }
+@keyframes doze {
+  0%, 100% { opacity: 1; transform: translateY(0) rotate(-2deg); }
+  50% { opacity: 1; transform: translateY(-6px) rotate(2deg); }
+}
+@keyframes out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes jolt {
+  0% { opacity: 0; transform: scale(0.94); }
+  35% { opacity: 1; transform: scale(1.1) rotate(-5deg); }
+  65% { transform: scale(0.98) rotate(4deg); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes warm-up { from { opacity: 0.35; } }
+@keyframes pop { from { opacity: 0; transform: translateX(-50%) translateY(10px) rotate(-4deg) scale(0.9); } }
+@keyframes drift {
+  0% { opacity: 0; transform: translate(0, 0) scale(0.8); }
+  30% { opacity: 0.9; }
+  100% { opacity: 0; transform: translate(14px, -36px) scale(1.1); }
+}
+
+/* Sections */
+
+main > section:not(.hero) { margin-top: clamp(88px, 12vw, 152px); }
+h2 { margin: 0 0 32px; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.12; }
+h3 { margin: 0; font-size: 21px; line-height: 1.25; }
+
+.screens { --gap: clamp(16px, 2.6vw, 36px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap); margin: 0; padding: 0; list-style: none; }
+.screens img {
+  display: block; width: 100%; height: auto; margin-bottom: 28px; border-radius: 12.5% / 5.75%;
+  box-shadow: 0 0 0 1px rgb(201 206 255 / 0.16), 0 28px 56px -28px rgb(0 0 0 / 0.7);
+}
+/* The four steps are the trip, so they sit on a line like the hero's route: a station each, the last one his stop. */
+.screens h3 { position: relative; padding-top: 28px; }
+.screens h3::before {
+  content: ""; position: absolute; z-index: 1; left: 0; top: 0; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--deep); border: 3px solid var(--line);
+}
+.screens h3::after { content: ""; position: absolute; left: 8px; right: calc(-1 * var(--gap)); top: 6px; height: 4px; background: var(--line); }
+.screens li:last-child h3::before { border-color: var(--butter); box-shadow: 0 0 0 6px rgb(255 219 115 / 0.16); }
+.screens li:last-child h3::after { right: 0; background: var(--rule); mask-image: linear-gradient(to right, #000, transparent); }
+.screens p { margin: 6px 0 0; color: var(--mist); font-size: 16px; }
+
+.offers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.offer { padding-right: clamp(24px, 4vw, 56px); }
+.offer.pro { padding: 0 0 0 clamp(24px, 4vw, 56px); border-left: 1px solid var(--rule); }
+.offer h3 { font-size: clamp(24px, 2.4vw, 28px); }
+.offer > p { margin: 10px 0 0; color: var(--mist); }
+.offer ul { margin: 24px 0 0; padding-left: 1.2em; }
+.offer li { margin: 10px 0; }
+.offer li::marker { color: var(--line); }
+.offer b { font-weight: 650; }
+.ticket { float: right; width: clamp(96px, 11vw, 132px); height: auto; margin: -28px 0 8px 16px; }
+
+.notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(32px, 6vw, 80px); }
+.notes h2 { margin-bottom: 12px; font-size: 24px; }
+.notes p { margin: 0; color: var(--mist); }
+
+/* Support and the policies */
+
+.prose { padding-top: clamp(32px, 6vw, 64px); }
+.prose > * { max-width: 40rem; }  /* the reading column, on the header's left edge */
+.prose h1 { margin: 0 0 8px; font-size: clamp(32px, 5vw, 46px); line-height: 1.08; }
+.prose h2 { margin: 2.2em 0 0.5em; font-size: 24px; }
+.prose p, .prose li { color: #DCE0F5; }
+.prose li { margin: 0.5em 0; }
+.prose strong { color: var(--text); font-weight: 650; }
+
+/* Phones */
+
+@media (max-width: 760px) {
+  .pitch { max-width: none; padding-bottom: 0; }
+  .top nav { flex-wrap: nowrap; }
+  .top nav a { padding: 0 8px; }
+  .top nav { margin-right: -8px; }
+  .pitch, .atlas { grid-area: auto; }
+  .atlas { justify-self: stretch; width: auto; margin: 8px calc(-1 * var(--gutter)) 0; }
+  .lbl { font-size: 13px; }
+  .screens {
+    grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 72%; overflow-x: auto;
+    scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none;
+    margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); scroll-padding-inline: var(--gutter);
+  }
+  .screens::-webkit-scrollbar { display: none; }
+  .screens li { scroll-snap-align: start; }
+  .offers, .notes { grid-template-columns: none; }
+  .offer { padding: 0; }
+  .offer.pro { margin-top: 48px; padding: 40px 0 0; border-left: 0; border-top: 1px solid var(--rule); }
+}
